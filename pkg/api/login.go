@@ -31,6 +31,7 @@ func LoginView(c *middleware.Context) {
 	viewData.Settings["oauthProviderName"] = setting.OAuthService.OAuthProviderName
 	viewData.Settings["disableUserSignUp"] = !setting.AllowUserSignUp
 	viewData.Settings["loginHint"] = setting.LoginHint
+	viewData.Settings["oauthOnly"] = setting.DisableUserPassLogin
 
 	if !tryLoginUsingRememberCookie(c) {
 		c.HTML(200, VIEW_INDEX, viewData)
